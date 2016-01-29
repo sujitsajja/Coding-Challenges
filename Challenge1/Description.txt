@@ -1,0 +1,5 @@
+You will be given two co-ordinates (x1,y1) and (x2,y2).
+
+At any point of time, from (x,y) you can only go to either (x+y,y) or (x,x+y)
+
+your function is supposed to return "yes" if you can reach (x2,y2) from (x1,y1) or else it should return "no"
