@@ -20,13 +20,13 @@ public class Diagnol {
     private static ArrayList<ArrayList<Integer>> diagonal(ArrayList<ArrayList<Integer>> A) {
         int N = A.size();
         ArrayList<ArrayList<Integer>> result = new ArrayList<>();
-        for(int i=0;i<N;i++){
+        for(int i=0;i<N;i++){			// Initialize the array in increasing order of size
             ArrayList<Integer> temp = new ArrayList<>();
             for(int j=0;j<i+1;j++)
                 temp.add(0);
             result.add(temp);
         }
-        for(int i=N-2;i>=0;i--){
+        for(int i=N-2;i>=0;i--){		// Initialize the array in decreasing order of size	
             ArrayList<Integer> temp = new ArrayList<>();
             for(int j=0;j<i+1;j++)
                 temp.add(0);

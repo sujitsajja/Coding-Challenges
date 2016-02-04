@@ -8,6 +8,9 @@ class Solution {
         int maxSum = 0;
         int sum = 0;
         int size = a.size();
+		// sum contains our temporary sum of the current sub array
+		// maxsum compares all the temporary sums and stores the maimum of it
+		// This is similar to kadanes algorithm
         for(int i=0;i<size;i++)
         {
             sum += a.get(i);

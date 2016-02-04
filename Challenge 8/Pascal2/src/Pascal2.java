@@ -14,7 +14,7 @@ public class Pascal2 {
         ArrayList<Integer> Result = new ArrayList<>();
         for(int i=0;i<a+1;i++)
         {
-            ArrayList<Integer> temp = new ArrayList<>();
+            ArrayList<Integer> temp = new ArrayList<>(); // Stores the current row values
             temp.add(1);
             if(i==0)
                 Result.add(1);
@@ -24,8 +24,8 @@ public class Pascal2 {
                         temp.add(Result.get(j)+Result.get(j-1));
                 }
                 temp.add(1);
-                Result.clear();
-                Result.addAll(temp);
+                Result.clear();					// Clear the previous row entries
+                Result.addAll(temp);			// Transfer the contents of temp to result
             }
         }
         return Result;

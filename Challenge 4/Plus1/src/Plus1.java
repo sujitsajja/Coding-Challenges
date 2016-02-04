@@ -17,9 +17,9 @@ class Solution {
                     a.set(i,number);
                 else
                 {
-                    carryFlag = true;
+                    carryFlag = true;		// If the digit crosses 10, set the carry flag
                     a.set(i,0);
-                    if(i==0){
+                    if(i==0){				// If it is the first position, then add an extra digit
                         result.add(1);
                         for(int j=0;j<size;j++)
                             result.add(a.get(j));
@@ -28,6 +28,7 @@ class Solution {
                 }
             }
         }
+		// For removing leading zeros
         carryFlag = true;
         for(int i=0;i<size;i++)
         {

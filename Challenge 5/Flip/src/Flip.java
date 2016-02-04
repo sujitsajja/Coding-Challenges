@@ -18,6 +18,9 @@ public class Flip {
         A = A.trim();
         int length = A.length();
         int[] intArray = new int[length];
+		// Logic used is similar to kadanes algorithm.
+		// Replace zeros with -1 and instead of finding the maximum sum,
+		// find the start index and end index of maximum sum sub array
         for(int i=0;i<length;i++){
             int temp = Character.getNumericValue(A.charAt(i));
             if(temp==1)
@@ -27,6 +30,10 @@ public class Flip {
             intArray[i] = temp;
         }
         int tempSum=0,maxSum=0,left=-1,right=-1,finalLeft=-1;
+		// tempsum contains sum of current sub array
+		// maxSum compares and stores the maximum of tempsum
+		// left and finalLeft are used to store start index of tempsum and maxsum respectively
+		// right is used to store end index of maxsum
         for(int i=0;i<length;i++){
             if(left==-1)
                 left=i;

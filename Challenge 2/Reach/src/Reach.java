@@ -16,6 +16,9 @@ class Solution {
             y2=Y.get(i+1);
             xdiff=Math.abs(x2-x1);
             ydiff=Math.abs(y2-y1);
+			// Going Diagonally covers two steps at a time
+			// we go diagonally untill we reach one or both the co-ordinates
+			// then we move to the side untill we reach the other co-ordinate
             if(xdiff==0 || ydiff==0)
                 finalSteps += xdiff+ydiff;
             else

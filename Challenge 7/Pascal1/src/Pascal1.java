@@ -17,13 +17,13 @@ public class Pascal1 {
             ArrayList<Integer> temp = new ArrayList<>();
             temp.add(1);
             if(i==0)
-                Result.add(temp);
+                Result.add(temp);		// for the first row we just need to add 1
             else{
-                if(i>0){
+                if(i>1){				// The computation starts only from the third row
                     for(int j=0;j<i-1;j++)
                         temp.add(Result.get(i-1).get(j)+Result.get(i-1).get(j+1));
                 }
-                temp.add(1);
+                temp.add(1);			// All the rows end with 1
                 Result.add(temp);
             }
         }

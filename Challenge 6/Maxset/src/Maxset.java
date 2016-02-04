@@ -22,6 +22,9 @@ public class Maxset {
         int length = a.size();
         long maxSum=0;
         long currentSum=0;
+		// The logic is similar to kadanes algorithm
+		// Instead of maximum sum we just stop the sub array whenever we come accross a negative number
+		// Compute the current sum, compare and store it in maxSum
         int finalLeft=-1, finalRight=-1, tempLeft=-1, tempRight=-1;
         for(int x=0;x<length;x++){
             if(a.get(x)>=0){
@@ -35,9 +38,8 @@ public class Maxset {
                     maxSum = currentSum;
                 }
                 else if(currentSum==maxSum){
-                    int finalDiff = finalRight-finalLeft;
-                    int tempDiff = tempRight-tempLeft;
-                    if(tempDiff>finalDiff){
+					// If they are equal we store the one with minimum elements
+                    if(()tempRight-tempLeft)>(finalRight-finalLeft)){
                         finalLeft = tempLeft;
                         finalRight = tempRight;
                     }
