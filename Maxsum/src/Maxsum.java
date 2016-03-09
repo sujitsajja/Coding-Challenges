@@ -54,3 +54,12 @@ public class Maxsum {
     }
 
 }
+
+/**
+ * Sample input:
+ * 10
+ * 2 -3 1 4 2 0 -1 3 5 9
+ * 
+ * Sample output:
+ * 23
+ */

@@ -79,3 +79,11 @@ public class Spiral {
     }
 
 }
+
+/**
+ * Sample input:
+ * 3
+ * 
+ * Sample output:
+ * [[1, 2, 3], [8, 9, 4], [7, 6, 5]]
+ */

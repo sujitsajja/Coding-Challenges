@@ -77,3 +77,11 @@ public class Flip {
     }
 
 }
+
+/**
+ * Sample input:
+ * 1001110010001
+ * 
+ * Sample Output:
+ * index 7 to index 12
+ */

@@ -12,6 +12,7 @@ import java.util.Scanner;
  */
 
 public class Reach {
+
     /**
      * @param args Command line argument
      */
@@ -69,3 +70,12 @@ public class Reach {
     }
 
 }
+
+/**
+ * Sample input:
+ * 5
+ * (1,1) ,(2,2) ,(3,3) ,(4,4) ,(5,10)
+ * 
+ * Sample output:
+ * 9
+ */

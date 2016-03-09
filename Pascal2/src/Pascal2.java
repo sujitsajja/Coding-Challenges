@@ -55,3 +55,11 @@ public class Pascal2 {
     }
 
 }
+
+/**
+ * Sample input:
+ * 5
+ * 
+ * Sample output:
+ * [1, 5, 10, 10, 5, 1]
+ */

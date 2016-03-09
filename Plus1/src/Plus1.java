@@ -70,3 +70,11 @@ public class Plus1 {
     }
 
 }
+
+/**
+ * Sample input:
+ * 12345
+ * 
+ * Sample output:
+ * 12346
+ */

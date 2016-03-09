@@ -69,3 +69,15 @@ public class Reachable {
     }
 
 }
+
+/**
+ * Sample input1:
+ * 1 1 10 10
+ * Sample output1:
+ * No
+ * 
+ * Sample input2:
+ * 1 1 1 11
+ * Sample output2:
+ * Yes
+ */
