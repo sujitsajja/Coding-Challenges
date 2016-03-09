@@ -1,0 +1,3 @@
+Write nonrecursive functions for the following tasks:
+   (i) reverse the order of elements of the SinglyLinkedList class
+   (ii) print the elements of the SinglyLinkedList class, in reverse order.

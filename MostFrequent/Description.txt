@@ -1,0 +1,2 @@
+Write a function that takes as parameter an array of integers, and returns an integer that is most frequent in the array.
+Compare the performance of an O(nlogn) algorithm that sorts the array with Arrays.sort and then finds the element, with a solution using HashMap that runs in O(n) expected time.
