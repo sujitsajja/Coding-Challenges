@@ -31,9 +31,20 @@ public class RoatedSortedArraySearch {
             System.out.println("The element is not present in the given input");
     }
 
+    /**
+     * Function to find the element in sorted array which is rotated at some pivot
+     * 
+     * @param input integer array
+     * @param x Element to find
+     * @param low Start index of the array
+     * @param high End index of the array
+     * 
+     * @return index value of the element if present or else -1
+     */
     private static int findRoatedSortedArray(int[] input, int x, int low, int high) {
         if(high<low)
             return -1;
+        //If only one element is left
         else if(high == low){
             if(input[low] == x)
                 return low;
@@ -41,6 +52,7 @@ public class RoatedSortedArraySearch {
                 return -1;
         }
         int middle = (low + high)/2;
+        //If the array is not rotated anymore we do normal binary Search
         if(input[middle]>=input[low] && input[high]>= input[middle]){
             if(input[middle]<x)
                 return findRoatedSortedArray(input, x, middle+1, high);
@@ -49,12 +61,14 @@ public class RoatedSortedArraySearch {
             else
                 return middle;
         }
+        //If the array is rotated by number of elements less than half
         else if(input[middle]<=input[high]){
             if(input[middle]>=x && input[high]<=x)
                 return findRoatedSortedArray(input, x, middle, high);
             else
                 return findRoatedSortedArray(input, x, low, middle-1);
         }
+        //If the array is rotated by number of elements more than half
         else{
             if(input[middle]>=x && input[low]<=x)
                 return findRoatedSortedArray(input, x, low, middle);
