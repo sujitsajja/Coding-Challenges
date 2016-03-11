@@ -17,8 +17,10 @@ public class FindingUnique {
      */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        System.out.print("Enter the number of elements in the array : ");
         int n = in.nextInt();
         Integer[] input = new Integer[n];
+        System.out.println("Enter the elements of the array seperated by space/enter :");
         for(int i=0;i<n;i++)
             input[i] = in.nextInt();
         int k = findDistinct(input);
