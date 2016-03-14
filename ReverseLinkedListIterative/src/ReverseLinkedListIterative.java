@@ -113,10 +113,10 @@ public class ReverseLinkedListIterative<T> {
         lst.reverseList();
         System.out.print("Reverse List without recursion : ");
         lst.printList();
-        System.out.println();
         lst.reverseList();
         System.out.print("Print the list in reverse order without recursion : ");
         lst.printReverse();
+        System.out.println();
     }
 
 }
