@@ -1,0 +1,2 @@
+Given a string find the number of unique palindromes that can be formed from the substrings.
+Note: A single character is also considered as a palindrome
