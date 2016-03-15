@@ -1,0 +1,1 @@
+Given a bitonic array, find the point of inflection.  An array is bitonic if it is made of a monotonically increasing subarray that is followed by a decreasing subarray.

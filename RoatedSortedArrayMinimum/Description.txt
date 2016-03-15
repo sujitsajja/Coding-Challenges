@@ -1,0 +1,2 @@
+Given an input sorted array which is rotated by some unknown pivot, Find the minimum element in the array.
+Note: The minimum element would be the one with which it is rotated.
