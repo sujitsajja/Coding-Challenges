@@ -65,9 +65,9 @@ public class BitonicArray {
 
 /**
  * Sample input:
- * 
- * 
+ * 10
+ * 2 4 6 8 10 9 7 5 3 1
  * 
  * Sample output:
- * 
+ * 4
  */
