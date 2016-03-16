@@ -1,0 +1,7 @@
+Given a matrix of numbers, find a chain of monotonically increasing numbers.  Matrix elements can be chained together
+with 4 adjacent elements (up, down, left, right).
+
+   4 neighbors of X:
+     	   *
+	 * X *
+	   *
