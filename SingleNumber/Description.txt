@@ -1,0 +1,2 @@
+ALl the elements of given array are repeated exactly twice except for one element.
+Find the element that appears only once.
