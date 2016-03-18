@@ -27,13 +27,17 @@ public class SingleNumber {
     }
 
     /**
+     * Function to find the number that appears only once in the given array
      * 
-     * @param input
-     * @return 
+     * @param input Array of integers
+     * 
+     * @return Number that does not repeat
      */
     private static int findSingleNumber(int[] input) {
         int n = input.length;
         int singleNumber = input[0];
+        // XOR operation eliminates duplicates which will
+        // result in a number that does not repeat
         for(int i=1;i<n;i++)
             singleNumber ^= input[i];
         return singleNumber;
