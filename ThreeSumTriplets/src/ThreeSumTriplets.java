@@ -34,6 +34,14 @@ public class ThreeSumTriplets {
             System.out.println("There are no triplets that form the given target sum");
     }
 
+    /**
+     * Function to find all the triplets that sum upto the given target
+     * 
+     * @param input Array of integers
+     * @param target Target sum
+     * 
+     * @return Triplets that sum upto target
+     */
     private static ArrayList<ArrayList<Integer>> findTriplets(ArrayList<Integer> input, int target) {
         ArrayList<ArrayList<Integer>> triplets = new ArrayList<>();
         // Sorting the input
@@ -42,6 +50,7 @@ public class ThreeSumTriplets {
         for(int i=0;i<size-2;i++){
             for(int j=i+1,k=size-1;j<k;){
                 int sum = input.get(i) + input.get(j) + input.get(k);
+                // If the sum is equal to target we found a triplet
                 if(sum==target){
                     ArrayList<Integer> triplet = new ArrayList<>();
                     triplet.add(input.get(i));
@@ -51,8 +60,10 @@ public class ThreeSumTriplets {
                     j++;
                     k--;
                 }
+                // If the sum is less than target we move the pointer to right
                 else if(sum<target)
                     j++;
+                // If the sum is more than target we move the pointer to left
                 else
                     k--;
             }
@@ -63,5 +74,11 @@ public class ThreeSumTriplets {
 }
 
 /**
+ * Sample input:
+ * 12
+ * 3 7 6 9 1 4 0 5 8 2 11 10
+ * 5
  * 
+ * Sample output:
+ * [[0, 1, 4], [0, 2, 3]]
  */
