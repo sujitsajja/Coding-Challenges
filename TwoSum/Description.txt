@@ -1,0 +1,1 @@
+Given a sorted array of integers and a target sum find a pair of integers in the array whose sum would be equal to given target.
