@@ -1,1 +1,1 @@
-Fill all the triplets in the given array that sum upto the given target.
+Fill all the triplets that sum upto the given target in the given array of unique elements .
