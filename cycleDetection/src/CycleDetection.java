@@ -7,13 +7,13 @@
  * @since 2016-03-15
  */
 
-public class CycleDetection <T>{
+class LinkedList<T>{
 
     /**
      * Node Structure
      * @param <T>
      */
-    public static class Entry<T> {
+    public class Entry<T> {
         T element;
         Entry<T> next;
         Entry(T x, Entry<T> nxt) {
@@ -28,7 +28,7 @@ public class CycleDetection <T>{
     /**
      * Constructor
      */
-    CycleDetection() {
+    LinkedList() {
         header = new Entry<>(null, null);
         tail = null;
         size = 0;
@@ -39,7 +39,7 @@ public class CycleDetection <T>{
      * 
      * @param x Element to be added
      */
-    private void add(T x) {
+    public void add(T x) {
         if (tail == null) {
             header.next = new Entry<>(x, header.next);
             tail = header.next;
@@ -49,15 +49,18 @@ public class CycleDetection <T>{
         }
         size++;
     }
+}
+
+public class CycleDetection {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        CycleDetection<Integer> list = new CycleDetection<>();
+        LinkedList<Integer> list = new LinkedList<>();
         for(int i=0;i<5;i++)
             list.add(i);
-        Entry<Integer> startPoint = list.tail;
+        LinkedList.Entry startPoint = list.tail;
         for(int i=5;i<10;i++)
             list.add(i);
         list.tail.next = startPoint;    // To create a cycle
@@ -73,11 +76,11 @@ public class CycleDetection <T>{
      * 
      * @return Start node of cycle in linked list
      */
-    private static Entry<Integer> findCycleHead(CycleDetection<Integer> list) {
+    private static LinkedList.Entry findCycleHead(LinkedList<Integer> list) {
         // We have two pointers where one pointer
         // moves twice the speed of the other
-        Entry<Integer> tortoise = list.header;
-        Entry<Integer> hare = list.header;
+        LinkedList.Entry tortoise = list.header;
+        LinkedList.Entry hare = list.header;
         // Except for the first time if both the pointers meet
         // at same node then the node is part of a cycle
         boolean firstTime = true;

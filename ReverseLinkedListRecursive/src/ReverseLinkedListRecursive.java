@@ -8,7 +8,7 @@
  * @since 2016-03-08
  */
 
-public class ReverseLinkedListRecursive<T> {
+class LinkedList<T>{
 
     /**
      * Node Structure
@@ -29,7 +29,7 @@ public class ReverseLinkedListRecursive<T> {
     /**
      * Constructor
      */
-    ReverseLinkedListRecursive() {
+    LinkedList() {
         header = new Entry<>(null, null);
         tail = null;
         size = 0;
@@ -40,7 +40,7 @@ public class ReverseLinkedListRecursive<T> {
      * 
      * @param x Element to be added
      */
-    private void add(T x) {
+    public void add(T x) {
         if (tail == null) {
             header.next = new Entry<>(x, header.next);
             tail = header.next;
@@ -54,7 +54,7 @@ public class ReverseLinkedListRecursive<T> {
     /**
      * Function to print elements in the list
      */
-    private void printList() {
+    public void printList() {
         Entry<T> x = header.next;
         while (x != null) {
             System.out.print(x.element + " ");
@@ -66,7 +66,7 @@ public class ReverseLinkedListRecursive<T> {
     /**
      * helper function for reversing recursively
      */
-    private void reverse() {
+    public void reverse() {
         Entry<T> x = header.next;
         if (x != null) {
             Entry<T> y = x.next;
@@ -95,7 +95,7 @@ public class ReverseLinkedListRecursive<T> {
     /**
      * helper function for printing list recursively
      */
-    private void printListReverse() {
+    public void printListReverse() {
         Entry<T> x = header.next;
         printReverseRecursive(x);
     }
@@ -113,11 +113,15 @@ public class ReverseLinkedListRecursive<T> {
         System.out.print(x.element + " ");
     }
 
+}
+
+public class ReverseLinkedListRecursive {
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ReverseLinkedListRecursive<Integer> lst = new ReverseLinkedListRecursive<>();
+        LinkedList<Integer> lst = new LinkedList<>();
         for (int i = 1; i <= 10; i++)
             lst.add(i);
         System.out.print("Original List : ");

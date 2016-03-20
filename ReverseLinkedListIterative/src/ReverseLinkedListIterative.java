@@ -10,7 +10,7 @@ import java.util.Stack;
  * @since 2016-03-08
  */
 
-public class ReverseLinkedListIterative<T> {
+class LinkedList<T>{
 
     /**
      * Node Structure
@@ -31,7 +31,7 @@ public class ReverseLinkedListIterative<T> {
     /**
      * Constructor
      */
-    ReverseLinkedListIterative() {
+    LinkedList() {
         header = new Entry<>(null, null);
         tail = null;
         size = 0;
@@ -42,7 +42,7 @@ public class ReverseLinkedListIterative<T> {
      * 
      * @param x Element to be added
      */
-    private void add(T x) {
+    public void add(T x) {
         if (tail == null) {
             header.next = new Entry<>(x, header.next);
             tail = header.next;
@@ -56,7 +56,7 @@ public class ReverseLinkedListIterative<T> {
     /**
      * Function to print elements in the list
      */
-    private void printList() {
+    public void printList() {
         Entry<T> x = header.next;
         while (x != null) {
             System.out.print(x.element + " ");
@@ -100,12 +100,15 @@ public class ReverseLinkedListIterative<T> {
                 System.out.print(stack.pop() + " ");
         }
     }
+}
+
+public class ReverseLinkedListIterative {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ReverseLinkedListIterative<Integer> lst = new ReverseLinkedListIterative<>();
+        LinkedList<Integer> lst = new LinkedList<>();
         for (int i = 1; i <= 10; i++)
             lst.add(i);
         System.out.print("Original List : ");
