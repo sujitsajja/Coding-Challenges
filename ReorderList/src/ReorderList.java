@@ -65,7 +65,23 @@ class LinkedList<T>{
             list2Head = list2Head.next;
             middle--;
         }
+        LinkedList<T> list2 = new LinkedList<>();
+        list2.header.next = list2Head;
+        list2.reverse();
         
+    }
+
+    public void reverse(){
+        Entry<T> previous = header.next;
+        Entry<T> current = previous.next;
+        previous.next = null;
+        while(current!=null){
+            Entry<T> next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        header.next = previous;
     }
 
 }
