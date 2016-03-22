@@ -50,6 +50,9 @@ class LinkedList<T>{
         size++;
     }
 
+    /**
+     * Function to display the contents of the linked list
+     */
     public void printList(){
         Entry<T> temp = header.next;
         while(temp!=null){
@@ -59,6 +62,9 @@ class LinkedList<T>{
         System.out.println();
     }
 
+    /**
+     * Function to re-order the elements of the linked list
+     */
     public void reorder(){
         int middle = size/2;
         Entry<T> list2Head = header.next;
@@ -68,6 +74,7 @@ class LinkedList<T>{
         }
         LinkedList<T> list2 = new LinkedList<>();
         list2.header.next = list2Head;
+        // Reversing the linked list from middle
         list2.reverse();
         Entry<T> list1Head = header.next;
         list2Head = list2.header.next;
@@ -85,6 +92,9 @@ class LinkedList<T>{
             list1Head.next = null;
     }
 
+    /**
+     * Function to reverse a linked list
+     */
     public void reverse(){
         Entry<T> previous = header.next;
         Entry<T> current = previous.next;
