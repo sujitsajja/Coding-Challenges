@@ -49,6 +49,25 @@ class LinkedList<T>{
         }
         size++;
     }
+
+    public void printList(){
+        Entry<T> temp = header.next;
+        while(temp!=null){
+            System.out.print(temp.element+" ");
+            temp = temp.next;
+        }
+    }
+
+    public void reorder(){
+        int middle = size/2;
+        Entry<T> list2Head = header.next;
+        while(middle>0){
+            list2Head = list2Head.next;
+            middle--;
+        }
+        
+    }
+
 }
 
 public class ReorderList {
@@ -57,7 +76,12 @@ public class ReorderList {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        LinkedList<Integer> list = new LinkedList<>();
+        for(int i=1;i<11;i++)
+            list.add(i);
+        list.reorder();
+        System.out.println("Elements of the list after re ordering are :");
+        list.printList();
     }
     
 }
