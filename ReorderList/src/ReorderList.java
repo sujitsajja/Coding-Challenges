@@ -56,6 +56,7 @@ class LinkedList<T>{
             System.out.print(temp.element+" ");
             temp = temp.next;
         }
+        System.out.println();
     }
 
     public void reorder(){
@@ -68,7 +69,20 @@ class LinkedList<T>{
         LinkedList<T> list2 = new LinkedList<>();
         list2.header.next = list2Head;
         list2.reverse();
-        
+        Entry<T> list1Head = header.next;
+        list2Head = list2.header.next;
+        while(list2Head!=null && list1Head!=null){
+            Entry<T> temp = list1Head.next;
+            list1Head.next = list2Head;
+            list2Head = list2Head.next;
+            list1Head = list1Head.next;
+            list1Head.next = temp;
+            list1Head = list1Head.next;
+        }
+        if(size%2!=0)
+            list2Head.next = null;
+        else
+            list1Head.next = null;
     }
 
     public void reverse(){
@@ -96,7 +110,7 @@ public class ReorderList {
         for(int i=1;i<11;i++)
             list.add(i);
         list.reorder();
-        System.out.println("Elements of the list after re ordering are :");
+        System.out.println("Elements of the list after re-ordering are :");
         list.printList();
     }
     
