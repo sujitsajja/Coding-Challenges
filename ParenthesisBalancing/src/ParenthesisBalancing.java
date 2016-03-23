@@ -71,5 +71,9 @@ public class ParenthesisBalancing {
 }
 
 /**
+ * Sample input:
+ * {{}[]()}
  * 
+ * Sample output:
+ * Balanced
  */
