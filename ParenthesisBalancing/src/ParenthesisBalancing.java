@@ -35,36 +35,37 @@ public class ParenthesisBalancing {
      */
     private static boolean isBalanced(String input) {
         int length = input.length();
+        // If the length of the string is odd then we can say
+        // for sure that the parenthesis is not balanced
         if(length%2!=0)
             return false;
+        // Maintaining a stack of currently opened parenthesis
         ArrayDeque<Character> openParenthesis = new ArrayDeque<>();
-        Character openBracket = '(';
-        Character openSquare = '[';
-        Character openFlower = '{';
-        Character closeBracket = ')';
-        Character closeSquare = ']';
-        Character closeFlower = '}';
         for(int i=0;i<length;i++){
             Character current = input.charAt(i);
-            if(current.equals(openBracket) || 
-                    current.equals(openFlower) || 
-                    current.equals(openSquare))
+            // If the current char is an open parenthesis
+            // then we push it to the stack
+            if(current.equals('(')||current.equals('[')||current.equals('{'))
                 openParenthesis.push(current);
+            // If the current char is a close parenthesis
+            // then we check for the last opened parenthesis
+            // which is present at the top of the stack
             else{
-                if(current.equals(closeBracket)){
-                    if(!openParenthesis.pop().equals(openBracket))
+                if(current.equals(')')){
+                    if(!openParenthesis.pop().equals('('))
                         return false;
                 }
-                else if(current.equals(closeFlower)){
-                    if(!openParenthesis.pop().equals(openFlower))
+                else if(current.equals(']')){
+                    if(!openParenthesis.pop().equals('['))
                         return false;
                 }
-                else if(current.equals(closeSquare)){
-                    if(!openParenthesis.pop().equals(openSquare))
+                else if(current.equals('}')){
+                    if(!openParenthesis.pop().equals('{'))
                         return false;
                 }
             }
         }
+        // We check for any open parenthesis that are not closed yet
         return openParenthesis.isEmpty();
     }
 
