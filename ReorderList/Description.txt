@@ -1,0 +1,4 @@
+Given a linked list re arrange the list in the following manner:
+
+input: 1-2-3-4-5-6-7
+output: 1-7-2-6-3-5-4
