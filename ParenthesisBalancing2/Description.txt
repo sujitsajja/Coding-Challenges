@@ -1,2 +1,2 @@
 Given an order of parenthesis check if they are balanced or not.
-The possible type of parenthesis are : '( )', '[ ]' and '{ }'.
+The only possible type of parenthesis is '( )'.
