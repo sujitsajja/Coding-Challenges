@@ -54,5 +54,10 @@ public class MajorityElement {
 }
 
 /**
+ * Sample input:
+ * 19
+ * 3 3 3 3 3 1 3 1 6 2 1 1 1 9 3 3 1 1 3
  * 
+ * Sample output:
+ * 3
  */
