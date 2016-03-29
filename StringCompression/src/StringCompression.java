@@ -57,3 +57,11 @@ public class StringCompression {
     }
 
 }
+
+/**
+ * Sample input:
+ * aaaassaaassssdsa
+ * 
+ * Sample output:
+ * a4s2a3s4d1s1a1
+ */
