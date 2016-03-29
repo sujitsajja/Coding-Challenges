@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 /**
  * To rotate an image represented as NxN matrix by 90 degrees
  * 
@@ -40,22 +39,37 @@ public class ImageRotation {
         }
     }
 
+    /**
+     * Function to rotate an image represented as NxN matrix
+     * 
+     * @param image NxN matrix to be rotated
+     */
     private static void rotateImage(int[][] image) {
         int n = image.length;
+        // We first reverse the matrix
         for(int i=0;i<n-1;i++){
-            for(int j=0;j<n-i;j++){
-                int temp = image[i][j];
-                image[i][j] = image[n-j-1][n-i-1];
-                image[n-j-1][n-i-1] = temp;
-            }
+            for(int j=0;j<n-i;j++)
+                swap(image,i,j,n-j-1,n-i-1);
         }
+        // we then invert the matrix
         for(int i=0;i<n/2;i++){
-            for(int j=0;j<n;j++){
-                int temp = image[i][j];
-                image[i][j] = image[n-i-1][j];
-                image[n-i-1][j] = temp;
-            }
+            for(int j=0;j<n;j++)
+                swap(image,i,j,n-i-1,j);
         }
     }
 
+    /**
+     * Helper function to swap two elements in a matrix
+     * 
+     * @param image Matrix
+     * @param x1 x co-ordinate of element 1
+     * @param y1 y co-ordinate of element 1
+     * @param x2 x co-ordinate of element 2
+     * @param y2 y co-ordinate of element 2
+     */
+    private static void swap(int[][] image,int x1,int y1,int x2,int y2){
+        int temp = image[x1][y1];
+        image[x1][y1] = image[x2][y2];
+        image[x2][y2] = temp;
+    }
 }
