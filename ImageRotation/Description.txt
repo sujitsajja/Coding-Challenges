@@ -1,0 +1,1 @@
+Rotate the given image represented by NxN matrix.
