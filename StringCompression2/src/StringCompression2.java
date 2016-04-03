@@ -1,5 +1,7 @@
+import java.util.Scanner;
+
 /**
- * 
+ * To compress the string using recursion
  * 
  * @author SujitS
  * 
@@ -13,7 +15,35 @@ public class StringCompression2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the string to be compressed : ");
+        String input = sc.next();
+        String output = compress(input);
+        System.out.println("The string after compression is : "+output);
+    }
+
+    private static String compress(String input) {
+        char first = input.charAt(0);
+        int count = 1;
+        return compress(input,first,count,1).toString();
+    }
+
+    private static StringBuilder compress(String input, char curr, int count, int index) {
+        StringBuilder current = new StringBuilder();
+        if(input.length()==index){
+            current.append(curr);
+            current.append(count);
+            return current;
+        }
+        char temp = input.charAt(index);
+        if(temp == curr)
+            return compress(input, curr, count+1, index+1);
+        else{
+            current.append(curr);
+            current.append(count);
+            current.append(compress(input, temp, 1, index+1).toString());
+            return current;
+        }
     }
 
 }
