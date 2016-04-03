@@ -70,3 +70,11 @@ public class StringCompression2 {
     }
 
 }
+
+/**
+ * Sample input:
+ * aaaabbaabbbbc
+ * 
+ * Sample output:
+ * a4b2a2b4c1
+ */
