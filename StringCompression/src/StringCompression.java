@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @since 2016-04-03
  */
 
-public class StringCompression2 {
+public class StringCompression {
 
     /**
      * @param args the command line arguments
