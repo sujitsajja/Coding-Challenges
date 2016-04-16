@@ -64,3 +64,13 @@ public class SlidingWindowMaximum {
     }
 
 }
+
+/**
+ * Sample Input:
+ * 5
+ * 1 2 3 4 5
+ * 3
+ * 
+ * Sample Output:
+ * 3 4 5
+ */
