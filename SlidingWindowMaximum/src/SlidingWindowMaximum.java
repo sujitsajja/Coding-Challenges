@@ -11,9 +11,12 @@ import java.util.Scanner;
  * @since 2016-04-15
  */
 
+/**
+ * Class to represent each element in the input
+ */
 class Item{
-    int number;
-    int index;
+    int number;         // Used to store the value
+    int index;          // Used to store its index position
     Item(int number, int index){
         this.number = number;
         this.index = index;
@@ -43,16 +46,41 @@ public class SlidingWindowMaximum {
         System.out.println();
     }
 
+    /**
+     * Function to find the maximum number in the window
+     * of given size which slides from left to right
+     * 
+     * @param input Input Array
+     * @param w Window Size
+     * 
+     * @return Array of maximum numbers in their respective windows
+     */
     private static int[] findWindowMax(int[] input, int w) {
-        if(w>=input.length)
-            return input;
         int n = input.length;
+        // If the window size is more than the input size
+        // then we just return the maximum value
+        if(w>=input.length){
+            int[] output = new int[1];
+            output[0] = input[0];
+            for(int i=1;i<n;i++){
+                if(output[0]<input[i])
+                   output[0]=input[i] ;
+            }
+            return output;
+        }
         int[] output = new int[n-w+1];
+        // We add the elements into priority queue based on
+        // their values. We need to store their index as well.
+        // So we create a new object for each number
         PriorityQueue<Item> pq = new PriorityQueue<>((Item a1, Item a2) -> a2.number - a1.number);
+        // For the first window we keep on adding w elements
         for(int i=0;i<w;i++)
             pq.add(new Item(input[i],i));
         int j=0;
         output[j] = pq.peek().number;
+        // From the second window, We add the new element into
+        // the priority queue and take the maximum element
+        // from the queue which is still in the window
         for(int i=w;i<n;i++){
             j++;
             pq.add(new Item(input[i],i));
