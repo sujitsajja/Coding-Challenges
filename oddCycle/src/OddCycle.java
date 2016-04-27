@@ -40,6 +40,8 @@ public class OddCycle {
             Vertex u = queue.poll();
             for(Edge e:u.Adj){
                 Vertex v = e.otherEnd(u);
+                // If the vertex is not visited earlier
+                // then we add it to the queue
                 if(!v.seen){
                     v.seen = true;
                     v.distance = u.distance + 1;
