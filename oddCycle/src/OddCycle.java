@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Scanner;
 
 /**
- * Given a graph find an odd length cycle if it exists
+ * Given a graph find all the odd length cycles
  * 
  * @author SujitS
  * 
