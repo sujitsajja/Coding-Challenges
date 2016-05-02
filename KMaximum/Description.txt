@@ -1,1 +1,0 @@
-Given a large set of data, find the k largest numbers.
