@@ -37,28 +37,19 @@ public class BitonicArray {
      */
     private static int findInflection(int[] input,int low,int high) {
         if(low==high)
-            return low;
-        if(low+1==high){
-            if(input[low]<=input[high])
-                return low;
-            else
-                return high;
-        }
-        int middle = (low+high)/2;
-        if((input[middle-1]<=input[middle]) &&(input[middle]<=input[middle+1])){
-            if(input[low]<=input[middle])
-                return findInflection(input, middle+1, high);
-            else
-                return findInflection(input, low, middle-1);
-        }
-        else if((input[middle-1]>=input[middle]) &&(input[middle]>=input[middle+1])){
-            if(input[low]<=input[middle])
-                return findInflection(input, middle+1, high);
-            else
-                return findInflection(input, low, middle-1);
-        }
-        else
-            return middle;
+			return low;
+		if(low+1==high){
+			if(input[low]<=input[high])
+				return high;
+			else
+				return low;
+		}
+		int middle = (low+high)/2;
+		if(input[middle] > input[middle-1] && input[middle] > input[middle+1])
+			return middle;
+		if(input[middle] > input[high] && input[middle] > input[low] && input[middle] < input[middle-1])
+			return findInflection(input, low, middle-1);
+		return findInflection(input, middle+1, high);
     }
 
 }
