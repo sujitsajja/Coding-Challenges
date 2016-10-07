@@ -17,9 +17,9 @@ public class Anagrams {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the string 1: ");
-        String s1 = sc.next();
+        final String s1 = sc.next();
         System.out.print("Enter the string 2: ");
-        String s2 = sc.next();
+        final String s2 = sc.next();
         if(checkAnagrams(s1,s2))
             System.out.println("The given strings are anagrams");
         else
@@ -37,6 +37,11 @@ public class Anagrams {
      */
     private static boolean checkAnagrams(String s1, String s2) {
         // Assuming the input to be in ascii characters
+		// If its extended ascii then we create an array of size 256
+		// If its a unicode then there will be more than a million characters
+		// In that case, using a hashmap would be more efficient than an array
+		// Also assuming that the strigs are case sensitive
+		// If its case insensitive, then before we start processing we just use toLowerCase() on both the strings
         int[] asciiArray = new int[128];
         if(s1.length()!=s2.length())
             return false;
