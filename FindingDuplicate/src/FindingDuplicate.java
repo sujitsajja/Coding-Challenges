@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
 /**
- * Given an array of n+1 integers between 1 to n
+ * Given a read only array of n+1 integers between 1 to n
  * find any number that repeats more than once
  * 
  * @author SujitS
  * 
- * @version 1.0
- * @since 2016-03-10
+ * @version 2.0
+ * @since 2016-10-08
  */
 
 public class FindingDuplicate {
@@ -24,7 +24,7 @@ public class FindingDuplicate {
         for(int i=0;i<n;i++)
             input[i] = in.nextInt();
         int k = findRepeated(input);
-        System.out.println("A repeated element of given input is :"+k);
+        System.out.println("A repeated element of given input is : "+k);
     }
 
     /**
@@ -35,19 +35,45 @@ public class FindingDuplicate {
      * @return duplicate element
      */
     private static int findRepeated(int[] a) {
-        int size = a.length;
-        for(int i=0;i<size;i++){
-            int index = a[i];
-            if(index<0)
-                index = -index;
-            // If the element at that index is already set to negative
-            // then it means that the number is repeated
-            if(a[index]<0)
-                return index;
-            else
-                a[index] = -a[index];
+        int maximumNumber = a.length - 1;
+	    int numberOfBuckets = (int)Math.ceil(Math.sqrt(maximumNumber));
+		// Each bucket range will be equal to numberOfBuckets
+        int[] buckets = new int[numberOfBuckets];
+		// For each element find the respective bucket number and increment the count in bucket at that position
+        for(int i=0;i<=maximumNumber;i++) {
+          int bucketNumber = (int)Math.ceil(a[i]/numberOfBuckets);
+		  // If the bucket range is x, then x will be in the first bucket not second (inclusive)
+          if(a[i]%numberOfBuckets == 0)
+              --bucketNumber;
+          buckets[bucketNumber]++;
         }
-        return -1;
+		// Each bucket is supposed to have a maximum count of bucket range
+		// If any bucket crosses this, then we can be sure that there is atleast one duplicate in that range
+        int targetBucketNumber = 0;
+        for(int i=0;i<numberOfBuckets;i++) {
+            targetBucketNumber = i;
+            if(buckets[i]>numberOfBuckets)
+                break;
+        }
+		// Because of the rounding in numberOfBuckets, there might be cases where we have created an extra bucket in the last
+        if(buckets[targetBucketNumber] == 0)
+            targetBucketNumber--;
+        HashSet<Integer> duplicateRangeElements = new HashSet<>();
+		int setCount = 0;
+        for(int j=0;j<=maximumNumber;j++) {
+            int bucketNumber = (int)Math.ceil(a[j]/numberOfBuckets);
+            if(a[j]%numberOfBuckets == 0)
+                --bucketNumber;
+			// Add the elements only in the range in which we are sure that there is atleast one duplicate
+            if(bucketNumber == targetBucketNumber) {
+				duplicateRangeElements.add(a[j]);
+				// Check if the element has already been added
+				if(setCount == duplicateRangeElements.size())
+                    return a[j];
+                setCount++;
+            }
+        }
+        return 0;
     }
 
 }
