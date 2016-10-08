@@ -40,30 +40,26 @@ public class Flip {
         int length = A.length();
         int[] intArray = new int[length];
         // Logic used is similar to kadanes algorithm.
-        // Replace zeros with -1 and instead of finding the maximum sum,
-        // find the start index and end index of maximum sum sub array
-        for(int i=0;i<length;i++){
-            int temp = Character.getNumericValue(A.charAt(i));
-            if(temp==1)
-                temp = -1;
-            else
-                temp = 1;
-            intArray[i] = temp;
+        // Replace zeros with 1 and ones with -1
+		// In addition to finding the maximum sum, also find
+        // the start index and end index of maximum sum sub array
+        for(int i=0;i<length;i++) {
+			intArray[i] = (Character.getNumericValue(A.charAt(i))==1)?(-1):(1);
         }
         int tempSum=0,maxSum=0,left=-1,right=-1,finalLeft=-1;
         // tempsum contains sum of current sub array
         // maxSum compares and stores the maximum of tempsum
         // left and finalLeft are used to store start index of tempsum and maxsum respectively
         // right is used to store end index of maxsum
-        for(int i=0;i<length;i++){
+        for(int i=0;i<length;i++) {
             if(left==-1)
                 left=i;
             tempSum += intArray[i];
-            if(tempSum<0){
+            if(tempSum<0) {
                 tempSum=0;
                 left=-1;
             }
-            if(maxSum<tempSum){
+            if(maxSum<tempSum) {
                 finalLeft = left;
                 maxSum = tempSum;
                 right = i;
