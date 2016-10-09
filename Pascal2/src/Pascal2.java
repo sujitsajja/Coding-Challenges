@@ -32,24 +32,17 @@ public class Pascal2 {
      */
     private static ArrayList<Integer> getRow(int a) {
         ArrayList<Integer> Result = new ArrayList<>();
-        for(int i=0;i<a+1;i++)
-        {
-            // Stores the current row values
+        for(int i=0;i<a+1;i++) {
             ArrayList<Integer> temp = new ArrayList<>();
-            temp.add(1);
-            if(i==0)
-                Result.add(1);
-            else{
-                if(i>0){
-                    for(int j=1;j<i;j++)
-                        temp.add(Result.get(j)+Result.get(j-1));
-                }
-                temp.add(1);
-                // Clear the previous row entries
-                Result.clear();
-                // Transfer the contents of temp to result
-                Result.addAll(temp);
+            for(int j=0;j<=i;j++) {
+                if(j==0 || j==i)
+                    temp.add(1);
+                else
+                    temp.add(Result.get(j)+Result.get(j-1));
             }
+			// Clear the previous row entries
+            Result.clear();
+            Result.addAll(temp);
         }
         return Result;
     }
