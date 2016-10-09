@@ -32,23 +32,15 @@ public class Pascal1 {
      */
     private static ArrayList<ArrayList<Integer>> generate(int a) {
         ArrayList<ArrayList<Integer>> Result = new ArrayList<>();
-        for(int i=0;i<a;i++)
-        {
+        for(int i=0;i<a;i++) {
             ArrayList<Integer> temp = new ArrayList<>();
-            temp.add(1);
-            // for the first row we just need to add 1
-            if(i==0)
-                Result.add(temp);
-            else{
-                // The computation starts only from the third row
-                if(i>1){
-                    for(int j=0;j<i-1;j++)
-                        temp.add(Result.get(i-1).get(j)+Result.get(i-1).get(j+1));
-                }
-                // All the rows end with 1
-                temp.add(1);
-                Result.add(temp);
+            for(int j=0;j<=i;j++) {
+                if(j==0 || j==i)
+                    temp.add(1);
+                else
+                    temp.add(Result.get(i-1).get(j)+Result.get(i-1).get(j-1));
             }
+            Result.add(temp);
         }
         return Result;
     }
