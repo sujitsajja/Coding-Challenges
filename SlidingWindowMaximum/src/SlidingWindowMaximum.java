@@ -1,5 +1,4 @@
-import java.util.PriorityQueue;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * To find the maximum number in the window of
@@ -60,12 +59,8 @@ public class SlidingWindowMaximum {
         // If the window size is more than the input size
         // then we just return the maximum value
         if(w>=input.length){
-            int[] output = new int[1];
-            output[0] = input[0];
-            for(int i=1;i<n;i++){
-                if(output[0]<input[i])
-                   output[0]=input[i] ;
-            }
+            IntSummaryStatistics stat = Arrays.stream(input).summaryStatistics();
+            int[] output = {stat.getMax()};
             return output;
         }
         int[] output = new int[n-w+1];
