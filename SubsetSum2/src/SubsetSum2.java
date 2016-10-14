@@ -44,13 +44,10 @@ public class SubsetSum2 {
         int[] sum = new int[k+1];
         sum[0] = 1;
         for(int i=0;i<input.length;i++){
-            if(input[i]>k)
-                continue;
-            int[] tempSum = new int[k+1];
-            for(int j=k;j>=input[i];j--)
-                tempSum[j] = sum[j]+sum[j-input[i]];
-            System.arraycopy(sum, 0, tempSum, 0, input[i]);
-            sum = tempSum;
+            if(input[i]<=k){
+                for(int j=k;j>=input[i];j--)
+                    sum[j] = sum[j]+sum[j-input[i]];
+            }
         }
         return sum[k];
     }
