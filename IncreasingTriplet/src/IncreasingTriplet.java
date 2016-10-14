@@ -29,8 +29,9 @@ public class IncreasingTriplet {
         } else {
             System.out.print("Triplet : ");
             triplet.stream().forEach((item) -> {
-                System.out.println(item + " ");
+                System.out.print(item + " ");
             });
+            System.out.println();
         }
     }
     
@@ -43,37 +44,17 @@ public class IncreasingTriplet {
      */
     private static ArrayList<Integer> findIncreasingOrderTriplet(int[] input) {
         ArrayList<Integer> triplet = new ArrayList<>();
-        // Find the indexes of the elements to the left that are lesser than the current element
-        int[] lesser = new int[input.length];
-        int minIndex = 0;
-        lesser[0] = -1;
-        for(int i=1;i<lesser.length;i++) {
-            if(input[i]<=input[minIndex]) {
-                lesser[i] = -1;
-                minIndex = i;
+        int firstElement = Integer.MAX_VALUE;
+        int secondElement = Integer.MAX_VALUE;
+        for(int i=0;i<input.length;i++) {
+            if(firstElement > input[i]) {
+                firstElement = input[i];
+            } else if (secondElement > input[i]) {
+                secondElement = input[i];
             } else {
-                lesser[i] = minIndex;
-            }
-        }
-        // Find the indexes of the elements to the right that are greater than the current element
-        int[] greater = new int[input.length];
-        int maxIndex = input.length-1;
-        greater[input.length-1] = -1;
-        for(int i=input.length-2;i>=0;i--) {
-            if(input[i]>=input[maxIndex]) {
-                greater[i] = -1;
-                maxIndex = i;
-            } else {
-                greater[i] = maxIndex;
-            }
-        }
-        // Find an integer which has an integer lesser than that to its left
-        // and also has another integer greater than that to its right
-        for(int i=0;i<input.length;i++){
-            if(lesser[i] != -1 && greater[i] != -1) {
-                triplet.add(input[lesser[i]]);
+                triplet.add(firstElement);
+                triplet.add(secondElement);
                 triplet.add(input[i]);
-                triplet.add(input[greater[i]]);
                 break;
             }
         }
