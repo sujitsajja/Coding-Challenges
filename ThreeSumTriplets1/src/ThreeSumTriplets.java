@@ -22,7 +22,7 @@ public class ThreeSumTriplets {
         System.out.print("Enter the number of elements in the array : ");
         int n = sc.nextInt();
         ArrayList<Integer> input = new ArrayList<>(n);
-        System.out.println("Enter the elements of the array seperated by SPace/Enter :");
+        System.out.println("Enter the elements of the array seperated by Space/Enter :");
         for(int i=0;i<n;i++)
             input.add(sc.nextInt());
         System.out.print("Enter the target sum : ");
@@ -46,9 +46,10 @@ public class ThreeSumTriplets {
         ArrayList<ArrayList<Integer>> triplets = new ArrayList<>();
         // Sorting the input
         Collections.sort(input);
-        int size = input.size();
-        for(int i=0;i<size-2;i++){
-            for(int j=i+1,k=size-1;j<k;){
+        int lastElementToBeConsidered = input.size()-1;
+        while(input.get(lastElementToBeConsidered) > target && lastElementToBeConsidered >=0 ) lastElementToBeConsidered--;
+        for(int i=0;i<lastElementToBeConsidered-1;i++) {
+            for(int j=i+1,k=input.size()-1;j<k && j<lastElementToBeConsidered;) {
                 int sum = input.get(i) + input.get(j) + input.get(k);
                 // If the sum is equal to target we found a triplet
                 if(sum==target){
@@ -60,12 +61,14 @@ public class ThreeSumTriplets {
                     j++;
                     k--;
                 }
-                // If the sum is less than target we move the pointer to right
-                else if(sum<target)
-                    j++;
-                // If the sum is more than target we move the pointer to left
-                else
-                    k--;
+                // If the sum is less than target we move the second pointer to right
+                else if(sum<target) {
+                    while(input.get(i) + input.get(j) + input.get(k) < target && k>j) j++;
+                }
+                // If the sum is more than target we move the third pointer to left
+                else {
+                    while(input.get(i) + input.get(j) + input.get(k) > target && k>j) k--;
+                }
             }
         }
         return triplets;
