@@ -1,1 +1,1 @@
-Find all the triplets that sum upto the given target in the given array of unique elements .
+Find all the triplets in the given array of unique elements that sum upto the given target.

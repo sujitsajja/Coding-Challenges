@@ -1,0 +1,1 @@
+Find the number of triplets in the given array of unique elements whose sum is less than the given target.
