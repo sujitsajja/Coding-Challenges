@@ -34,9 +34,9 @@ public class MaximumUnsortedSubArray {
     }
     
     /**
-     * 
+     * Function to find the indices of maximum unsorted sub array
      * @param input
-     * @return 
+     * @return start index and end index
      */
     private static ArrayList<Integer> findMaximumUnsortedSubArray(int[] input) {
         ArrayList<Integer> result = new ArrayList<>();
